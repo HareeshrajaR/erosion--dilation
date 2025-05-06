@@ -6,43 +6,57 @@ To implement Erosion and Dilation using Python and OpenCV.
 2. OpenCV
 ## Algorithm:
 ### Step1:
-<br>
-
+Create a blank image.
 
 ### Step2:
-<br>
+Create a structuring element (5x5 rectangular)
 
 ### Step3:
-<br>
+Erode the image.
 
 ### Step4:
-<br>
+Dilate the image.
 
 ### Step5:
-<br>
+End the program.
 
  
 ## Program:
 
-``` Python
-# Import the necessary packages
+```
+# Developed By: HAREESH R
+# Register No: 212223230068
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
 
-
-# Create the Text using cv2.putText
-
+image = np.zeros((500, 500, 3), dtype=np.uint8)
 
 
-# Create the structuring element
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(image, 'HAREESH R', (100, 250), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
 
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for displaying
+plt.title("Input Image with Text")
+plt.axis('off')
 
-# Erode the image
+
+kernel = np.ones((3, 3), np.uint8)
+eroded_image = cv2.erode(image, kernel, iterations=1)
+
+plt.imshow(cv2.cvtColor(eroded_image, cv2.COLOR_BGR2RGB))
+plt.title("Eroded Image")
+plt.axis('off')
+
+dilated_image = cv2.dilate(image, kernel, iterations=1)
 
 
-
-
-# Dilate the image
+plt.imshow(cv2.cvtColor(dilated_image, cv2.COLOR_BGR2RGB)) 
+plt.title("Dilated Image")
+plt.axis('off')
 
 
 
@@ -51,29 +65,19 @@ To implement Erosion and Dilation using Python and OpenCV.
 ```
 ## Output:
 
-### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+### Display the input Image:
+![download](https://github.com/user-attachments/assets/4db6ee3a-237b-4274-84e6-5fe80b5f5ef5)
 
-### Display the Eroded Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-### Display the Dilated Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+### Display the Eroded Image:
+![download](https://github.com/user-attachments/assets/1c72b3c9-53b8-4573-b5e9-9b7ee0b77309)
+
+
+### Display the Dilated Image:
+![download](https://github.com/user-attachments/assets/5eef5f91-f57b-40b2-8055-a0da3536b0e3)
+
+
 
 ## Result
 Thus the generated text image is eroded and dilated using python and OpenCV.
